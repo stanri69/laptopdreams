@@ -41,7 +41,7 @@ class VideocardsController < ApplicationController
   private
 
   def videocard_params
-    params.require(:videocard).permit(:type_videocard, :name, :description)
+    params.require(:videocard).permit(:type_videocard, :name, :amount_memory, :description)
   end
 
   def set_videocard

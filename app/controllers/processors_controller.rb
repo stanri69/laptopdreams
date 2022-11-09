@@ -41,7 +41,7 @@ class ProcessorsController < ApplicationController
   private
 
   def processor_params
-    params.require(:processor).permit(:name, :operating_system, :clock_frequency)
+    params.require(:processor).permit(:name, :number_cores, :operating_system, :clock_frequency)
   end
 
   def set_processor

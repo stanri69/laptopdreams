@@ -1,4 +1,5 @@
-ActiveRecord::Schema[7.0].define(version: 2022_11_07_215048) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_09_214510) do
+  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "additionallies", force: :cascade do |t|
@@ -38,10 +39,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_07_215048) do
   end
 
   create_table "dataloggers", force: :cascade do |t|
-    t.integer "ssd_volume"
-    t.string "name"
+    t.integer "volume"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type_datalogger"
   end
 
   create_table "laptops", force: :cascade do |t|
@@ -50,6 +51,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_07_215048) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "brand"
+    t.string "op"
+    t.string "type_laptop"
   end
 
   create_table "processors", force: :cascade do |t|
@@ -58,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_07_215048) do
     t.integer "clock_frequency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "number_cores"
   end
 
   create_table "rams", force: :cascade do |t|
@@ -84,6 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_07_215048) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "amount_memory"
   end
 
 end

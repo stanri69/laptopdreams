@@ -41,7 +41,7 @@ class DataloggersController < ApplicationController
   private
 
   def datalogger_params
-    params.require(:datalogger).permit(:ssd_volume, :name)
+    params.require(:datalogger).permit(:volume, :type_datalogger)
   end
 
   def set_datalogger
