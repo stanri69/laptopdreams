@@ -1,3 +1,35 @@
-%h1 hihihi
+%h1 show laptop
 
-= render 'batteries/battery'
+.container
+  .row
+    .col
+      %p
+        %b Full laptop name:
+        = @laptop.full_name
+      %p
+        %b price:
+        = @laptop.price
+      %p
+        %b description:
+        = @laptop.description
+      %p
+        %b brand:
+        = @laptop.brand
+      %p
+        %b op:
+        = @laptop.op
+      %p
+        %b type laptop:
+        = @laptop.type_laptop
+      %p
+        %b Battery capacity:
+        = @laptop.battery.id
+      %p
+        %b Battery capacity:
+        = @laptop.battery.battery_capacity
+      %p
+        %b Battery capacity:
+        = @laptop.battery.battery_life
+
+
+= link_to 'Back', laptops_path, class:  "btn btn-dark"
