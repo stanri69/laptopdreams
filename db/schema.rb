@@ -1,4 +1,4 @@
-ActiveRecord::Schema[7.0].define(version: 2022_11_09_214510) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_17_021342) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,24 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_214510) do
     t.string "brand"
     t.string "op"
     t.string "type_laptop"
+    t.bigint "battery_id", null: false
+    t.bigint "ram_id", default: 1, null: false
+    t.bigint "datalogger_id", default: 2, null: false
+    t.bigint "processor_id", default: 1, null: false
+    t.bigint "connection_id", default: 1, null: false
+    t.bigint "additionally_id", default: 1, null: false
+    t.bigint "corp_id", default: 1, null: false
+    t.bigint "screen_id", default: 1, null: false
+    t.bigint "videocard_id", default: 1, null: false
+    t.index ["additionally_id"], name: "index_laptops_on_additionally_id"
+    t.index ["battery_id"], name: "index_laptops_on_battery_id"
+    t.index ["connection_id"], name: "index_laptops_on_connection_id"
+    t.index ["corp_id"], name: "index_laptops_on_corp_id"
+    t.index ["datalogger_id"], name: "index_laptops_on_datalogger_id"
+    t.index ["processor_id"], name: "index_laptops_on_processor_id"
+    t.index ["ram_id"], name: "index_laptops_on_ram_id"
+    t.index ["screen_id"], name: "index_laptops_on_screen_id"
+    t.index ["videocard_id"], name: "index_laptops_on_videocard_id"
   end
 
   create_table "processors", force: :cascade do |t|
@@ -92,4 +110,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_09_214510) do
     t.integer "amount_memory"
   end
 
+  add_foreign_key "laptops", "additionallies"
+  add_foreign_key "laptops", "batteries"
+  add_foreign_key "laptops", "connections"
+  add_foreign_key "laptops", "corps"
+  add_foreign_key "laptops", "dataloggers"
+  add_foreign_key "laptops", "processors"
+  add_foreign_key "laptops", "rams"
+  add_foreign_key "laptops", "screens"
+  add_foreign_key "laptops", "videocards"
 end
