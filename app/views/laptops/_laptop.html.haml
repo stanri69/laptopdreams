@@ -2,7 +2,10 @@
   .row
   - @laptops.each do |lap|
     .col-md-4
-      = link_to lap.full_name, lap
-      %br
-      = lap.price
-      %b $
+      - if lap.image.present?
+        = link_to image_tag(lap.image, class: 'style_image'), lap.image
+        .col-md-10.col-md-offset-1
+          = link_to lap.full_name, lap
+          %br
+          = lap.price
+          %b $

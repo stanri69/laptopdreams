@@ -3,6 +3,8 @@
 .container
   .row
     .col
+      - if @laptop.image.present?
+        = link_to image_tag(@laptop.image, class: 'style_image'), @laptop.image
       %p
         %b Full laptop name:
         = @laptop.full_name
