@@ -1,7 +1,6 @@
-.container
-  .row
+.row
   - @laptops.each do |lap|
-    .col-md-4
+    .col-sm
       - if lap.image.present?
         = link_to image_tag(lap.image, class: 'style_image'), lap.image
         .col-md-10.col-md-offset-1
