@@ -1,0 +1,50 @@
+= form_with(model: @laptop) do |form|
+  %div
+    = form.file_field :image
+  %div
+    = form.label :full_name, style: "display: block"
+    = form.text_field :full_name
+  %div
+    = form.label :price, style: "display: block"
+    = form.text_field :price
+  %div
+    = form.label :brand, style: "display: block"
+    = form.text_field :brand
+  %div
+    = form.label :op, style: "display: block"
+    = form.text_field :op
+  %div
+    = form.label :type_laptop, style: "display: block"
+    = form.text_field :type_laptop
+  %div
+    = form.label :description, style: "display: block"
+    = form.text_area :description
+  %div
+    = form.label :additionallies, style: "display: block"
+    = form.select :additionally_id, options_for_select(@additionallies.collect { |cat| [cat.additionally_features, cat.id]})
+  %div
+    = form.label :batteries, style: "display: block"
+    = form.select :battery_id, options_for_select(@batteries.collect { |cat| [cat.battery_capacity, cat.id]})
+  %div
+    = form.label :connections, style: "display: block"
+    = form.select :connection_id, options_for_select(@connections.collect { |cat| [cat.ports, cat.id]})
+  %div
+    = form.label :corps, style: "display: block"
+    = form.select :corp_id, options_for_select(@corps.collect { |cat| [cat.color, cat.id]})
+  %div
+    = form.label :dataloggers, style: "display: block"
+    = form.select :datalogger_id, options_for_select(@dataloggers.collect { |cat| [cat.type_datalogger, cat.id]})
+  %div
+    = form.label :processors, style: "display: block"
+    = form.select :processor_id, options_for_select(@processors.collect { |cat| [cat.name, cat.id]})
+  %div
+    = form.label :rams, style: "display: block"
+    = form.select :ram_id, options_for_select(@rams.collect { |cat| [cat.type_ram, cat.id]})
+  %div
+    = form.label :screens, style: "display: block"
+    = form.select :screen_id, options_for_select(@screens.collect { |cat| [cat.diagonal, cat.id]})
+  %div
+    = form.label :videocards, style: "display: block"
+    = form.select :videocard_id, options_for_select(@videocards.collect { |cat| [cat.type_videocard, cat.id]})
+  %div
+    = form.submit

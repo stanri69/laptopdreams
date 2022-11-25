@@ -1,0 +1,7 @@
+%h2
+  %strong Battery:
+  %br
+  - @batteries.each do |b|
+    = b.battery_capacity
+    %br
+      = b.battery_life
