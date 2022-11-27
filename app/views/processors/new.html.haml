@@ -1,0 +1,8 @@
+= simple_form_for @processor do |f|
+  = f.input :name
+  = f.input :operating_system
+  = f.input :clock_frequency
+  = f.input :number_cores
+  = f.submit 'Save', class: "btn btn-dark"
+
+= link_to 'Back', root_path, class: "btn btn-dark"

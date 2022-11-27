@@ -1,0 +1,9 @@
+= simple_form_for @screen do |f|
+  = f.input :diagonal
+  = f.input :screen_type
+  = f.input :resolution
+  = f.input :refresh_rate
+  = f.input :built_camera
+  = f.submit 'Save', class: "btn btn-dark"
+
+= link_to 'Back', root_path, class: "btn btn-dark"

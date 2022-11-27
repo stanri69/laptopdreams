@@ -1,0 +1,10 @@
+= simple_form_for @corp do |f|
+  = f.input :color
+  = f.input :weight
+  = f.input :sound_system
+  = f.input :manipulators
+  = f.input :dimensions
+  = f.input :body_material
+  = f.submit 'Save', class: "btn btn-dark"
+
+= link_to 'Back', root_path, class: "btn btn-dark"

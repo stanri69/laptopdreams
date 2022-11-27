@@ -1,9 +1,39 @@
-%p
-  %strong Joined on:
-  = @joined_on
-%p
-  %strong Last logged in on:
-  = @last_login
-%p
-  %strong No. times logged in:
-  = @user.sign_in_count
+.container
+  .row
+    - if @user.seller?
+      %h1 hello seller
+    - elsif @user.admin?
+      .row
+        %h1 hello admin
+        .col
+          = link_to "Add additionallies", new_additionally_path, class:  "btn btn-dark"
+          = link_to "Add batteries", new_battery_path, class:  "btn btn-dark"
+          = link_to "Add connections", new_connection_path, class:  "btn btn-dark"
+          = link_to "Add corps", new_corp_path, class:  "btn btn-dark"
+          = link_to "Add dataloggers", new_datalogger_path, class:  "btn btn-dark"
+          = link_to "Add processors", new_processor_path, class:  "btn btn-dark"
+        .col
+          = link_to "Add rams", new_ram_path, class:  "btn btn-dark"
+          = link_to "Add screens", new_screen_path, class:  "btn btn-dark"
+          = link_to "Add videocards", new_videocard_path, class:  "btn btn-dark"
+          = link_to "All users", users_path, class:  "btn btn-dark"
+          = link_to 'New laptop', new_laptop_path, class:  "btn btn-dark"
+    - elsif @user.guest?
+      %h1 hello guest
+      %h6 favorite laptops here
+    .col-sm
+      = @user.email
+      %br
+      = @user.name
+      %br
+      = @user.role.name
+    .col-sm
+      %p
+      %strong Joined on:
+      = @joined_on
+      %p
+      %strong Last logged in on:
+      = @last_login
+      %p
+      %strong No. times logged in:
+      = @user.sign_in_count

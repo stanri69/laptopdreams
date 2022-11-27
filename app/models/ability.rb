@@ -10,6 +10,7 @@ class Ability
         lap.try(:user) == user
       end
       can :update, :all
+      can :read, User
     elsif user.admin?
       can :read, Laptop
       can :create, Laptop
@@ -22,6 +23,7 @@ class Ability
       can :manage, :all
     elsif user.guest?
       can :read, Laptop
+      can :read, User
     end
   end
 end

@@ -2,12 +2,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
 
-  # GET /users or /users.json
   def index
     @users = User.all
   end
 
-  # GET /users/1 or /users/1.json
   def show
     @joined_on = @user.created_at.to_formatted_s(:short)
 
@@ -18,16 +16,13 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /users/new
   def new
   end
 
-  # GET /users/1/edit
   def edit
     authorize! :edit, @laptop
   end
 
-  # POST /users or /users.json
   def create
     respond_to do |format|
       if @user.save
@@ -40,7 +35,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1 or /users/1.json
   def update
     if user_params[:password].blank?
       user_params.delete(:password)
@@ -60,7 +54,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1 or /users/1.json
   def destroy
     @user.destroy
 

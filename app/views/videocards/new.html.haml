@@ -1,0 +1,8 @@
+= simple_form_for @videocard do |f|
+  = f.input :type_videocard
+  = f.input :name
+  = f.input :amount_memory
+  = f.input :description
+  = f.submit 'Save', class: "btn btn-dark"
+
+= link_to 'Back', root_path, class: "btn btn-dark"

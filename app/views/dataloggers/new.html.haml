@@ -1,0 +1,6 @@
+= simple_form_for @datalogger do |f|
+  = f.input :type_datalogger
+  = f.input :volume
+  = f.submit 'Save', class: "btn btn-dark"
+
+= link_to 'Back', root_path, class: "btn btn-dark"

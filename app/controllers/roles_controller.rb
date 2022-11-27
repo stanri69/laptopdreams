@@ -1,12 +1,11 @@
 class RolesController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-  # GET /roles or /roles.json
+
   def index
     @roles = Role.all
   end
 
-  # GET /roles/1 or /roles/1.json
   def show
     if @role.users.empty?
       @assosciated_user = 'None'
@@ -15,15 +14,12 @@ class RolesController < ApplicationController
     end
   end
 
-  # GET /roles/new
   def new
   end
 
-  # GET /roles/1/edit
   def edit
   end
 
-  # POST /roles or /roles.json
   def create
     respond_to do |format|
       if @role.save
@@ -36,7 +32,6 @@ class RolesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /roles/1 or /roles/1.json
   def update
     respond_to do |format|
       if @role.update(role_params)
@@ -49,7 +44,6 @@ class RolesController < ApplicationController
     end
   end
 
-  # DELETE /roles/1 or /roles/1.json
   def destroy
     @role.destroy
 

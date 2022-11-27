@@ -5,6 +5,7 @@
       %ul.navbar-nav.me-auto.mb-2.mb-lg-0
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
+          %li= link_to  "Profile", current_user, class: "btn btn-white"
           %li= link_to 'Sign Out', destroy_user_session_path, class: "btn btn-white", data: { method: :delete }
         - else
           %li= link_to "Sign Up", new_user_registration_path, class: "btn btn-white"

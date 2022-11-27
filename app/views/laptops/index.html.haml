@@ -16,5 +16,3 @@
     %td
     - if can? :destroy, lap
       = link_to 'Destroy', lap, method: :delete, data: { confirm: 'Are you sure?' }
-    - if can? :create, Laptop
-      = link_to 'New laptop', new_laptop_path, class:  "btn btn-dark"
