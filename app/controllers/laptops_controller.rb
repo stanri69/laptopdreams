@@ -1,6 +1,7 @@
 class LaptopsController < ApplicationController
   before_action :set_laptop, only: %i[ show edit update destroy ]
   before_action :set_characteristics
+  # before_action :authenticate_user!
 
   def index
     @laptops = Laptop.all.order("created_at DESC")

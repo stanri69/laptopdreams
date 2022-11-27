@@ -1,0 +1,7 @@
+= simple_form_for @connection do |f|
+  = f.input :network_adapters
+  = f.input :ports
+  = f.input :wireless_communication
+  = f.submit 'Save', class: "btn btn-dark"
+
+= link_to 'Back', root_path, class: "btn btn-dark"

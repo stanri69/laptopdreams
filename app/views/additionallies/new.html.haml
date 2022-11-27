@@ -1,0 +1,9 @@
+= simple_form_for @additionally do |f|
+  = f.input :additionally_features
+  = f.input :producing_country, as: :text
+  = f.input :supply_set
+  = f.input :registration
+  = f.input :guarantee
+  = f.submit 'Save', class: "btn btn-dark"
+
+= link_to 'Back', root_path, class: "btn btn-dark"
