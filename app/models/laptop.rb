@@ -1,6 +1,6 @@
 class Laptop < ApplicationRecord
-  before_action :authenticate_user!
-  load_and_authorize_resource
+  #before_action :authenticate_user!
+  #load_and_authorize_resource
 
   validates :battery_id, presence: true
   belongs_to :battery, optional: true

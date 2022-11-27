@@ -47,7 +47,4 @@
     = form.label :videocards, style: "display: block"
     = form.select :videocard_id, options_for_select(@videocards.collect { |cat| [cat.type_videocard, cat.id]})
   %div
-    = form.label :user_id
-    = form.text_field :user_id
-  %div
     = form.submit

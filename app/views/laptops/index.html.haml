@@ -1,13 +1,20 @@
 .container
   %h1 Laptops
-
-  = render 'laptop'
-
-  %td
-  - if can? :update, laptop
-    = link_to 'Edit', edit_laptop_path(laptop)
-  %td
-  - if can? :destroy, laptop
-    = link_to 'Destroy', laptop, method: :delete, data: { confirm: 'Are you sure?' }
-  - if can? :create, Laptop
-    = link_to 'New laptop', new_laptop_path, class:  "btn btn-dark"
+  .row
+  - @laptops.each do |lap|
+    .col-sm
+      - if lap.image.present?
+        = link_to image_tag(lap.image, class: 'style_image'), lap.image
+        .col-md-10.col-md-offset-1
+          = link_to lap.full_name, lap
+          %br
+          = lap.price
+          %b $
+    %td
+    - if can? :update, lap
+      = link_to 'Edit', edit_laptop_path(lap)
+    %td
+    - if can? :destroy, lap
+      = link_to 'Destroy', lap, method: :delete, data: { confirm: 'Are you sure?' }
+    - if can? :create, Laptop
+      = link_to 'New laptop', new_laptop_path, class:  "btn btn-dark"

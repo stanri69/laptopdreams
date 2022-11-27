@@ -2,13 +2,14 @@
 
 class Ability
   include CanCan::Ability
-
   def initialize(user)
+    return unless user.present?
+
     if user.seller?
       can :update, Laptop do |lap|
         lap.try(:user) == user
       end
-      can :manage, :all
+      can :update, :all
     elsif user.admin?
       can :read, Laptop
       can :create, Laptop
@@ -18,6 +19,7 @@ class Ability
       can :destroy, Laptop do |lap|
         lap.try(:user) == user
       end
+      can :manage, :all
     elsif user.guest?
       can :read, Laptop
     end
