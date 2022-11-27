@@ -1,6 +1,7 @@
 class LaptopsController < ApplicationController
   before_action :set_laptop, only: %i[ show edit update destroy ]
   before_action :set_characteristics
+  before_action :authenticate_user!
 
   def index
     @laptops = Laptop.all.order("created_at DESC")
@@ -18,6 +19,7 @@ class LaptopsController < ApplicationController
 
   def create
     @laptop = Laptop.new(laptop_params)
+    @laptop.user_id = current_user.id
 
     if @laptop.save
       redirect_to root_path

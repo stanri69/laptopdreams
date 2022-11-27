@@ -60,3 +60,11 @@ videocard = Videocard.create!(
   description: 'Екран 15.6" IPS (1920x1080) Full HD, матовий / AMD Ryzen 5 5500U (2.1 - 4.0 ГГц) / RAM 16 ГБ / SSD 512 ГБ / AMD Radeon Graphics / без ОД / Wi-Fi / Bluetooth / веб-камера / без ОС / 1.65 кг / сірий',
   amount_memory: 16
 )
+
+r1 = Role.create({ name: 'Guest', description: 'Can read laptops' })
+r2 = Role.create({ name: 'Seller', description: 'Can read and update laptops' })
+r3 = Role.create({ name: 'Admin', description: 'Can read and create laptops. Can update and destroy own laptops' })
+
+u1 = User.create({ name: 'Sally', email: 'sally@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r1.id })
+u2 = User.create({ name: 'Sue', email: 'sue@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r2.id })
+u3 = User.create({ name: 'Kev', email: 'kev@example.com', password: 'aaaaaaaa', password_confirmation: 'aaaaaaaa', role_id: r3.id })
