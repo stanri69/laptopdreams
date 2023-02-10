@@ -1,0 +1,15 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-warning
+  .container-fluid
+    %a.navbar-brand.text-dark{:href => "/"} Laptop dreams
+    #navbarSupportedContent.collapse.navbar-collapse
+      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+      %ul.nav.navbar-nav.navbar-right
+        - if seller_signed_in?
+          = render 'layouts/login_seller'
+        -else
+          - if user_signed_in?
+            %li= link_to 'Sign Out', destroy_user_session_path, class: "gg btn btn-white", data: { method: :delete }
+          - else
+            %li= link_to "Sign Up", new_user_registration_path, class: "gg btn btn-white"
+            %li= link_to "Log In User", new_user_session_path, class: "gg btn btn-white"
+            %li= link_to "Log In Seller", new_seller_session_path,  class: "gg btn btn-white"

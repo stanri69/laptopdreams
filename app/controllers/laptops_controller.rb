@@ -17,7 +17,7 @@ class LaptopsController < ApplicationController
   end
 
   def create
-    @laptop = Laptop.new(laptop_params)
+    @laptop = current_seller.laptops.build(laptop_params)
 
     if @laptop.save
       redirect_to root_path
