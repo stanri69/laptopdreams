@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_10_160502) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_10_165436) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -103,6 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_10_160502) do
     t.bigint "ram_id", null: false
     t.bigint "screen_id", null: false
     t.bigint "videocard_id", null: false
+    t.integer "seller_id"
     t.index ["additionally_id"], name: "index_laptops_on_additionally_id"
     t.index ["battery_id"], name: "index_laptops_on_battery_id"
     t.index ["connection_id"], name: "index_laptops_on_connection_id"

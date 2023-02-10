@@ -1,4 +1,4 @@
 class Datalogger < ApplicationRecord
   validates :type_datalogger, presence: true, uniqueness: true
-  has_many :laptops
+  has_many :laptops, dependent: :destroy
 end
