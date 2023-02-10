@@ -1,25 +1,14 @@
-%h1 Listing laptops
-
-%table
-  %thead
-    %tr
-      %th Full name
-      %th Price
-      %th Description
-      %th
-      %th
-      %th
-
-  %tbody
-    - @laptops.each do |laptop|
-      %tr
-        %td= laptop.full_name
-        %td= laptop.price
-        %td= laptop.description
-        %td= link_to 'Show', laptop
-        %td= link_to 'Edit', edit_laptop_path(laptop)
-        %td= link_to 'Destroy', laptop, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Laptop', new_laptop_path
+.container
+  %h1 Laptops
+  .row
+  - @laptops.each do |lap|
+    .col-sm
+      .col-md-10.col-md-offset-1
+        = link_to lap.full_name, lap
+        %br
+        = lap.price
+        %b $
+    %td
+      = link_to 'Edit', edit_laptop_path(lap)
+    %td
+      = link_to 'Destroy', lap, method: :delete, data: { confirm: 'Are you sure?' }

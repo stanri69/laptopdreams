@@ -1,19 +1,48 @@
-= form_for @laptop do |f|
-  - if @laptop.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@laptop.errors.count, "error")} prohibited this laptop from being saved:"
-      %ul
-        - @laptop.errors.full_messages.each do |message|
-          %li= message
-
-  .field
-    = f.label :full_name
-    = f.text_field :full_name
-  .field
-    = f.label :price
-    = f.number_field :price
-  .field
-    = f.label :description
-    = f.text_area :description
-  .actions
-    = f.submit 'Save'
+= form_with(model: @laptop) do |form|
+  %div
+    = form.label :full_name, style: "display: block"
+    = form.text_field :full_name
+  %div
+    = form.label :price, style: "display: block"
+    = form.text_field :price
+  %div
+    = form.label :brand, style: "display: block"
+    = form.text_field :brand
+  %div
+    = form.label :op, style: "display: block"
+    = form.text_field :op
+  %div
+    = form.label :type_laptop, style: "display: block"
+    = form.text_field :type_laptop
+  %div
+    = form.label :description, style: "display: block"
+    = form.text_area :description
+  %div
+    = form.label :additionallies, style: "display: block"
+    = form.select :additionally_id, options_for_select(@additionallies.collect { |cat| [cat.additionally_features, cat.id]})
+  %div
+    = form.label :batteries, style: "display: block"
+    = form.select :battery_id, options_for_select(@batteries.collect { |cat| [cat.battery_capacity, cat.id]})
+  %div
+    = form.label :connections, style: "display: block"
+    = form.select :connection_id, options_for_select(@connections.collect { |cat| [cat.ports, cat.id]})
+  %div
+    = form.label :corps, style: "display: block"
+    = form.select :corp_id, options_for_select(@corps.collect { |cat| [cat.color, cat.id]})
+  %div
+    = form.label :dataloggers, style: "display: block"
+    = form.select :datalogger_id, options_for_select(@dataloggers.collect { |cat| [cat.type_datalogger, cat.id]})
+  %div
+    = form.label :processors, style: "display: block"
+    = form.select :processor_id, options_for_select(@processors.collect { |cat| [cat.name, cat.id]})
+  %div
+    = form.label :rams, style: "display: block"
+    = form.select :ram_id, options_for_select(@rams.collect { |cat| [cat.type_ram, cat.id]})
+  %div
+    = form.label :screens, style: "display: block"
+    = form.select :screen_id, options_for_select(@screens.collect { |cat| [cat.diagonal, cat.id]})
+  %div
+    = form.label :videocards, style: "display: block"
+    = form.select :videocard_id, options_for_select(@videocards.collect { |cat| [cat.type_videocard, cat.id]})
+  %div
+    = form.submit
