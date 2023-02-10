@@ -25,4 +25,6 @@ class Laptop < ApplicationRecord
 
   validates :videocard_id, presence: true
   belongs_to :videocard, optional: true
+
+  has_one_attached :image
 end

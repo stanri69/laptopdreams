@@ -1,5 +1,7 @@
 = form_with(model: @laptop) do |form|
   %div
+    = form.file_field :image
+  %div
     = form.label :full_name, style: "display: block"
     = form.text_field :full_name
   %div

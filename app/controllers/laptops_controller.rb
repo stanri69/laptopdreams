@@ -39,6 +39,15 @@ class LaptopsController < ApplicationController
     redirect_to root_path
   end
 
+  def image(laptop_id)
+    laptop = Laptop.find!(laptop_id)
+    if laptop.image.attached?
+      image_tag laptop.image
+    else
+      image_tag 'default_image.jpeg'
+    end
+  end
+
   private
 
   def set_laptop
