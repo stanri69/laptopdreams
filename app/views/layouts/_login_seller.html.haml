@@ -1,0 +1,5 @@
+- if seller_signed_in?
+  %li= link_to 'New Laptop', new_laptops_path, class:  "gg btn btn-white"
+  %li= link_to 'Sign Out Dealer', destroy_seller_session_path, class: "gg btn btn-white", data: { method: :delete }
+- else
+  %li= link_to "Log In Dealer", new_seller_session_path,  class: "gg btn btn-white"
