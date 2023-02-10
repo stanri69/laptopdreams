@@ -1,0 +1,31 @@
+%h1 Listing corps
+
+%table
+  %thead
+    %tr
+      %th Color
+      %th Weight
+      %th Sound system
+      %th Manipulators
+      %th Dimensions
+      %th Body material
+      %th
+      %th
+      %th
+
+  %tbody
+    - @corps.each do |corp|
+      %tr
+        %td= corp.color
+        %td= corp.weight
+        %td= corp.sound_system
+        %td= corp.manipulators
+        %td= corp.dimensions
+        %td= corp.body_material
+        %td= link_to 'Show', corp
+        %td= link_to 'Edit', edit_corp_path(corp)
+        %td= link_to 'Destroy', corp, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Corp', new_corp_path

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @processor.name
+%p
+  %b Operating system:
+  = @processor.operating_system
+%p
+  %b Clock frequency:
+  = @processor.clock_frequency
+%p
+  %b Number cores:
+  = @processor.number_cores
+
+= link_to 'Edit', edit_processor_path(@processor)
+\|
+= link_to 'Back', processors_path

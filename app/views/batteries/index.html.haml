@@ -1,0 +1,23 @@
+%h1 Listing batteries
+
+%table
+  %thead
+    %tr
+      %th Battery capacity
+      %th Battery life
+      %th
+      %th
+      %th
+
+  %tbody
+    - @batteries.each do |battery|
+      %tr
+        %td= battery.battery_capacity
+        %td= battery.battery_life
+        %td= link_to 'Show', battery
+        %td= link_to 'Edit', edit_battery_path(battery)
+        %td= link_to 'Destroy', battery, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Battery', new_battery_path

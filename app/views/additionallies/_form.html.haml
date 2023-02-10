@@ -1,0 +1,25 @@
+= form_for @additionally do |f|
+  - if @additionally.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@additionally.errors.count, "error")} prohibited this additionally from being saved:"
+      %ul
+        - @additionally.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :additionally_features
+    = f.text_field :additionally_features
+  .field
+    = f.label :producing_country
+    = f.text_field :producing_country
+  .field
+    = f.label :supply_set
+    = f.text_field :supply_set
+  .field
+    = f.label :registration
+    = f.text_field :registration
+  .field
+    = f.label :guarantee
+    = f.text_field :guarantee
+  .actions
+    = f.submit 'Save'

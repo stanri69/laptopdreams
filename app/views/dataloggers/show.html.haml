@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Volume:
+  = @datalogger.volume
+%p
+  %b Type datalogger:
+  = @datalogger.type_datalogger
+
+= link_to 'Edit', edit_datalogger_path(@datalogger)
+\|
+= link_to 'Back', dataloggers_path

@@ -1,0 +1,23 @@
+%h1 Listing dataloggers
+
+%table
+  %thead
+    %tr
+      %th Volume
+      %th Type datalogger
+      %th
+      %th
+      %th
+
+  %tbody
+    - @dataloggers.each do |datalogger|
+      %tr
+        %td= datalogger.volume
+        %td= datalogger.type_datalogger
+        %td= link_to 'Show', datalogger
+        %td= link_to 'Edit', edit_datalogger_path(datalogger)
+        %td= link_to 'Destroy', datalogger, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Datalogger', new_datalogger_path

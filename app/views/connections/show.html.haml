@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Network adapters:
+  = @connection.network_adapters
+%p
+  %b Ports:
+  = @connection.ports
+%p
+  %b Wireless communication:
+  = @connection.wireless_communication
+
+= link_to 'Edit', edit_connection_path(@connection)
+\|
+= link_to 'Back', connections_path

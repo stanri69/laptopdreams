@@ -1,0 +1,28 @@
+= form_for @corp do |f|
+  - if @corp.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@corp.errors.count, "error")} prohibited this corp from being saved:"
+      %ul
+        - @corp.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :color
+    = f.text_field :color
+  .field
+    = f.label :weight
+    = f.number_field :weight
+  .field
+    = f.label :sound_system
+    = f.text_field :sound_system
+  .field
+    = f.label :manipulators
+    = f.text_field :manipulators
+  .field
+    = f.label :dimensions
+    = f.text_field :dimensions
+  .field
+    = f.label :body_material
+    = f.text_field :body_material
+  .actions
+    = f.submit 'Save'

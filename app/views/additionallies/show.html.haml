@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Additionally features:
+  = @additionally.additionally_features
+%p
+  %b Producing country:
+  = @additionally.producing_country
+%p
+  %b Supply set:
+  = @additionally.supply_set
+%p
+  %b Registration:
+  = @additionally.registration
+%p
+  %b Guarantee:
+  = @additionally.guarantee
+
+= link_to 'Edit', edit_additionally_path(@additionally)
+\|
+= link_to 'Back', additionallies_path

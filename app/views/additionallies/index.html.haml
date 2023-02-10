@@ -1,0 +1,29 @@
+%h1 Listing additionallies
+
+%table
+  %thead
+    %tr
+      %th Additionally features
+      %th Producing country
+      %th Supply set
+      %th Registration
+      %th Guarantee
+      %th
+      %th
+      %th
+
+  %tbody
+    - @additionallies.each do |additionally|
+      %tr
+        %td= additionally.additionally_features
+        %td= additionally.producing_country
+        %td= additionally.supply_set
+        %td= additionally.registration
+        %td= additionally.guarantee
+        %td= link_to 'Show', additionally
+        %td= link_to 'Edit', edit_additionally_path(additionally)
+        %td= link_to 'Destroy', additionally, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Additionally', new_additionally_path

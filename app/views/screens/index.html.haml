@@ -1,0 +1,29 @@
+%h1 Listing screens
+
+%table
+  %thead
+    %tr
+      %th Diagonal
+      %th Screen type
+      %th Resolution
+      %th Refresh rate
+      %th Built camera
+      %th
+      %th
+      %th
+
+  %tbody
+    - @screens.each do |screen|
+      %tr
+        %td= screen.diagonal
+        %td= screen.screen_type
+        %td= screen.resolution
+        %td= screen.refresh_rate
+        %td= screen.built_camera
+        %td= link_to 'Show', screen
+        %td= link_to 'Edit', edit_screen_path(screen)
+        %td= link_to 'Destroy', screen, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Screen', new_screen_path

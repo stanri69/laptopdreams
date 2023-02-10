@@ -1,0 +1,19 @@
+= form_for @ram do |f|
+  - if @ram.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@ram.errors.count, "error")} prohibited this ram from being saved:"
+      %ul
+        - @ram.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :amount
+    = f.number_field :amount
+  .field
+    = f.label :number_slot
+    = f.number_field :number_slot
+  .field
+    = f.label :type_ram
+    = f.text_field :type_ram
+  .actions
+    = f.submit 'Save'

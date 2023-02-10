@@ -1,0 +1,16 @@
+= form_for @battery do |f|
+  - if @battery.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@battery.errors.count, "error")} prohibited this battery from being saved:"
+      %ul
+        - @battery.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :battery_capacity
+    = f.text_field :battery_capacity
+  .field
+    = f.label :battery_life
+    = f.number_field :battery_life
+  .actions
+    = f.submit 'Save'

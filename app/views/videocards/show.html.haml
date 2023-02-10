@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Type videocard:
+  = @videocard.type_videocard
+%p
+  %b Name:
+  = @videocard.name
+%p
+  %b Description:
+  = @videocard.description
+%p
+  %b Amount memory:
+  = @videocard.amount_memory
+
+= link_to 'Edit', edit_videocard_path(@videocard)
+\|
+= link_to 'Back', videocards_path
