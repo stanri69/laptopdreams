@@ -6,7 +6,7 @@
       = @laptop.full_name
       %p
       - if @laptop.image.present?
-        = link_to image_tag(@laptop.image, class: 'style_image'), @laptop.image
+        = link_to image_tag(@laptop.image, class: 'style_image_show'), @laptop.image
       - else
         = link_to image_tag "default_image_laptop.jpeg", class: 'style_image_show'
     .col-sm

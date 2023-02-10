@@ -26,8 +26,8 @@ class Laptop < ApplicationRecord
   validates :videocard_id, presence: true
   belongs_to :videocard
 
-  validates :dealer_id, presence: true
-  belongs_to :dealer
+  validates :seller_id, presence: true
+  belongs_to :seller
 
   has_one_attached :image
 end
