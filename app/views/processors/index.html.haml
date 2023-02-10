@@ -1,0 +1,27 @@
+%h1 Listing processors
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Operating system
+      %th Clock frequency
+      %th Number cores
+      %th
+      %th
+      %th
+
+  %tbody
+    - @processors.each do |processor|
+      %tr
+        %td= processor.name
+        %td= processor.operating_system
+        %td= processor.clock_frequency
+        %td= processor.number_cores
+        %td= link_to 'Show', processor
+        %td= link_to 'Edit', edit_processor_path(processor)
+        %td= link_to 'Destroy', processor, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Processor', new_processor_path

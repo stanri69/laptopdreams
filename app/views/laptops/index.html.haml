@@ -1,0 +1,13 @@
+.container
+  %h1 Laptops
+  .row
+    - @laptops.each do |lap|
+      = link_to lap.full_name, lap
+      .col-sm
+        - if lap.image.present?
+          = link_to image_tag(lap.image, class: 'style_image'), lap.image
+        - else
+          = link_to image_tag "default_image_laptop.jpeg", class: 'style_image_index'
+        .col-md-10.col-md-offset-1
+          = lap.price
+          %b $

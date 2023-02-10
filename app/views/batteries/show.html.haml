@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Battery capacity:
+  = @battery.battery_capacity
+%p
+  %b Battery life:
+  = @battery.battery_life
+
+= link_to 'Edit', edit_battery_path(@battery)
+\|
+= link_to 'Back', batteries_path

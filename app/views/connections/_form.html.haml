@@ -1,0 +1,19 @@
+= form_for @connection do |f|
+  - if @connection.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@connection.errors.count, "error")} prohibited this connection from being saved:"
+      %ul
+        - @connection.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :network_adapters
+    = f.check_box :network_adapters
+  .field
+    = f.label :ports
+    = f.text_field :ports
+  .field
+    = f.label :wireless_communication
+    = f.text_field :wireless_communication
+  .actions
+    = f.submit 'Save'

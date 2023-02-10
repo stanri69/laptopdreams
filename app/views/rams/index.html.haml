@@ -1,0 +1,25 @@
+%h1 Listing rams
+
+%table
+  %thead
+    %tr
+      %th Amount
+      %th Number slot
+      %th Type ram
+      %th
+      %th
+      %th
+
+  %tbody
+    - @rams.each do |ram|
+      %tr
+        %td= ram.amount
+        %td= ram.number_slot
+        %td= ram.type_ram
+        %td= link_to 'Show', ram
+        %td= link_to 'Edit', edit_ram_path(ram)
+        %td= link_to 'Destroy', ram, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Ram', new_ram_path

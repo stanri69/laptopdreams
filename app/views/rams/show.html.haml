@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Amount:
+  = @ram.amount
+%p
+  %b Number slot:
+  = @ram.number_slot
+%p
+  %b Type ram:
+  = @ram.type_ram
+
+= link_to 'Edit', edit_ram_path(@ram)
+\|
+= link_to 'Back', rams_path

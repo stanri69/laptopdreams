@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Color:
+  = @corp.color
+%p
+  %b Weight:
+  = @corp.weight
+%p
+  %b Sound system:
+  = @corp.sound_system
+%p
+  %b Manipulators:
+  = @corp.manipulators
+%p
+  %b Dimensions:
+  = @corp.dimensions
+%p
+  %b Body material:
+  = @corp.body_material
+
+= link_to 'Edit', edit_corp_path(@corp)
+\|
+= link_to 'Back', corps_path

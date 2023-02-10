@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Diagonal:
+  = @screen.diagonal
+%p
+  %b Screen type:
+  = @screen.screen_type
+%p
+  %b Resolution:
+  = @screen.resolution
+%p
+  %b Refresh rate:
+  = @screen.refresh_rate
+%p
+  %b Built camera:
+  = @screen.built_camera
+
+= link_to 'Edit', edit_screen_path(@screen)
+\|
+= link_to 'Back', screens_path

@@ -1,0 +1,27 @@
+%h1 Listing videocards
+
+%table
+  %thead
+    %tr
+      %th Type videocard
+      %th Name
+      %th Description
+      %th Amount memory
+      %th
+      %th
+      %th
+
+  %tbody
+    - @videocards.each do |videocard|
+      %tr
+        %td= videocard.type_videocard
+        %td= videocard.name
+        %td= videocard.description
+        %td= videocard.amount_memory
+        %td= link_to 'Show', videocard
+        %td= link_to 'Edit', edit_videocard_path(videocard)
+        %td= link_to 'Destroy', videocard, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Videocard', new_videocard_path

@@ -1,0 +1,156 @@
+%h1 show laptop
+
+.container
+  .row
+    .col-sm
+      = @laptop.full_name
+      %p
+      - if @laptop.image.present?
+        = link_to image_tag(@laptop.image, class: 'style_image'), @laptop.image
+      - else
+        = link_to image_tag "default_image_laptop.jpeg", class: 'style_image_show'
+    .col-sm
+      %br
+      price:
+      = @laptop.price
+      %br
+      description:
+      = @laptop.description
+      %br
+      brand:
+      = @laptop.brand
+      %br
+      op:
+      = @laptop.op
+      %br
+      type laptop:
+      = @laptop.type_laptop
+  .row
+    .col
+      %b corps:
+      %br
+      corp color:
+      = @laptop.corp.color
+      %br
+      weight:
+      = @laptop.corp.weight
+      %br
+      sound system:
+      = @laptop.corp.sound_system
+      %br
+      manipulator:
+      = @laptop.corp.manipulators
+      %br
+      corp dimension:
+      = @laptop.corp.dimensions
+      %br
+      body material:
+      = @laptop.corp.body_material
+      %p
+      %button.btn.btn-primary{"aria-controls" => "collapseExample", "aria-expanded" => "false", "data-bs-target" => "#collapseExample", "data-bs-toggle" => "collapse", :type => "button"}
+        All characteristics
+      #collapseExample.collapse
+        .card.card-body
+          %p
+            %b Battery characteristics:
+            %br
+            battery capacity:
+            = @laptop.battery.battery_capacity
+            %br
+            battery life:
+            = @laptop.battery.battery_life
+          %p
+            %b data loggers characteristics:
+            %br
+            type:
+            = @laptop.datalogger.type_datalogger
+            %br
+            volume:
+            = @laptop.datalogger.volume
+          %p
+            %b connections characteristics:
+            %br
+            network adapter:
+            = @laptop.connection.network_adapters
+            %br
+            ports:
+            = @laptop.connection.ports
+            %br
+            wireless communication:
+            = @laptop.connection.wireless_communication
+          %p
+            %b processors characteristics:
+            %br
+            processor name:
+            = @laptop.processor.name
+            %br
+            operating system:
+            = @laptop.processor.operating_system
+            %br
+            clock frequency:
+            = @laptop.processor.clock_frequency
+            %br
+            number cores:
+            = @laptop.processor.number_cores
+          %p
+            %b rams characteristics:
+            %br
+            ram type:
+            = @laptop.ram.type_ram
+            %br
+            amount:
+            = @laptop.ram.amount
+            %br
+            number slot:
+            = @laptop.ram.number_slot
+          %p
+            %b screens characteristics:
+            %br
+            diagonal:
+            = @laptop.screen.diagonal
+            %br
+            screen type:
+            = @laptop.screen.screen_type
+            %br
+            resolution:
+            = @laptop.screen.resolution
+            %br
+            refresh rate:
+            = @laptop.screen.refresh_rate
+            %br
+            built camera:
+            = @laptop.screen.built_camera
+          %p
+            %b videocards characteristics:
+            %br
+            videocard type:
+            = @laptop.videocard.type_videocard
+            %br
+            videocard name:
+            = @laptop.videocard.name
+            %br
+            amount memory:
+            = @laptop.videocard.amount_memory
+            %br
+            description:
+            = @laptop.videocard.description
+          %p
+            %b additionally characteristics:
+            %br
+            additionally features:
+            = @laptop.additionally.additionally_features
+            %br
+            producing country:
+            = @laptop.additionally.producing_country
+            %br
+            supply set:
+            = @laptop.additionally.supply_set
+            %br
+            registration country brand:
+            = @laptop.additionally.registration
+            %br
+            guarantee:
+            = @laptop.additionally.guarantee
+
+
+  = link_to 'Back', laptops_path, class:  "btn btn-dark"
