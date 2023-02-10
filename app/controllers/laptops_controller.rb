@@ -1,70 +1,65 @@
 class LaptopsController < ApplicationController
   before_action :set_laptop, only: %i[ show edit update destroy ]
+  before_action :set_characteristics
 
-  # GET /laptops or /laptops.json
   def index
-    @laptops = Laptop.all
+    @laptops = Laptop.all.order("created_at DESC")
   end
 
-  # GET /laptops/1 or /laptops/1.json
   def show
   end
 
-  # GET /laptops/new
   def new
     @laptop = Laptop.new
   end
 
-  # GET /laptops/1/edit
   def edit
   end
 
-  # POST /laptops or /laptops.json
   def create
     @laptop = Laptop.new(laptop_params)
 
-    respond_to do |format|
-      if @laptop.save
-        format.html { redirect_to laptop_url(@laptop), notice: "Laptop was successfully created." }
-        format.json { render :show, status: :created, location: @laptop }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @laptop.errors, status: :unprocessable_entity }
-      end
+    if @laptop.save
+      redirect_to root_path
+    else
+      render 'new', status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /laptops/1 or /laptops/1.json
   def update
-    respond_to do |format|
-      if @laptop.update(laptop_params)
-        format.html { redirect_to laptop_url(@laptop), notice: "Laptop was successfully updated." }
-        format.json { render :show, status: :ok, location: @laptop }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @laptop.errors, status: :unprocessable_entity }
-      end
+    if @laptop.update(laptop_params)
+      redirect_to laptop_path(@laptop)
+    else
+      render 'new'
     end
   end
 
-  # DELETE /laptops/1 or /laptops/1.json
   def destroy
     @laptop.destroy
-
-    respond_to do |format|
-      format.html { redirect_to laptops_url, notice: "Laptop was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to root_path
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_laptop
-      @laptop = Laptop.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def laptop_params
-      params.require(:laptop).permit(:full_name, :price, :description)
-    end
+  def set_laptop
+    @laptop = Laptop.find(params[:id])
+  end
+
+  def laptop_params
+    params.require(:laptop).permit(:full_name, :price, :description, :brand, :op, :type_laptop, :image,
+                                   :battery_id, :ram_id, :processor_id, :datalogger_id, :connection_id, :additionally_id,
+                                   :corp_id, :screen_id, :videocard_id)
+  end
+
+  def set_characteristics
+    @additionallies = Additionally.all.order(:additionally_features)
+    @batteries = Battery.all.order(:battery_capacity)
+    @connections = Connection.all.order(:ports)
+    @corps = Corp.all.order(:color)
+    @dataloggers = Datalogger.all.order(:type_datalogger)
+    @processors = Processor.all.order(:name)
+    @rams = Ram.all.order(:type_ram)
+    @screens = Screen.all.order(:diagonal)
+    @videocards = Videocard.all.order(:type_videocard)
+  end
 end
