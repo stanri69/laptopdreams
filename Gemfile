@@ -17,6 +17,7 @@ gem "redis", "~> 4.0"
 gem "bootstrap", "~> 5.2.3"
 gem "simple_form", "~> 5.1.0"
 gem "devise", "~> 4.8.1"
+gem "activeadmin", github: "activeadmin/activeadmin", branch: "master"
 
 gem "haml-rails", "~> 2.1.0"
 gem "haml", "~> 6.0.12"
