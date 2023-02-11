@@ -16,6 +16,16 @@ FactoryBot.define do
     screen_id { 1 }
     videocard_id { 1 }
     seller_id { 1 }
+    additionally
+    battery
+    connection
+    corp
+    datalogger
+    processor
+    ram
+    screen
+    videocard
+    seller
   end
 
   factory :invalid_laptop, parent: :laptop do

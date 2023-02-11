@@ -27,7 +27,7 @@ class AdditionalliesController < ApplicationController
 
   def update
     if @additionally.update(additionally_params)
-      redirect_to additionallies_path(@additionally)
+      redirect_to additionally_path(@additionally)
     else
       render 'new'
     end
