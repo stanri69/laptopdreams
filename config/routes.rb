@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :connections
   resources :batteries
   resources :additionallies
-  resources :laptops
+  resources :laptops do
+    resources :favorites
+  end
   root 'laptops#index'
 end
