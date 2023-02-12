@@ -1,10 +1,19 @@
 FactoryBot.define do
   factory :corp do
-    color { "MyString" }
+    color { "red" }
     weight { 1 }
-    sound_system { "MyString" }
-    manipulators { "MyString" }
-    dimensions { "MyString" }
-    body_material { "MyString" }
+    sound_system { "sound_system" }
+    manipulators { "Touch" }
+    dimensions { "359.2 x 236.5 x 19.9 мм" }
+    body_material { "Plastic" }
+  end
+
+  factory :invalid_corp, parent: :corp do
+    color { nil }
+    weight { nil }
+    sound_system { nil }
+    manipulators { nil }
+    dimensions { nil }
+    body_material { nil }
   end
 end
