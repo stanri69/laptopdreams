@@ -2,17 +2,18 @@ require 'rails_helper'
 
 RSpec.describe Laptop, type: :model do
   describe 'relationships' do
-    it {is_expected.to belong_to :battery }
-    it {is_expected.to belong_to :datalogger }
-    it {is_expected.to belong_to :ram }
-    it {is_expected.to belong_to :processor }
-    it {is_expected.to belong_to :connection }
-    it {is_expected.to belong_to :additionally }
-    it {is_expected.to belong_to :corp }
-    it {is_expected.to belong_to :screen }
-    it {is_expected.to belong_to :videocard }
-    it {is_expected.to belong_to :seller }
-    it {is_expected.to have_one_attached :image }
+    it {is_expected.to belong_to :battery}
+    it {is_expected.to belong_to :datalogger}
+    it {is_expected.to belong_to :ram}
+    it {is_expected.to belong_to :processor}
+    it {is_expected.to belong_to :connection}
+    it {is_expected.to belong_to :additionally}
+    it {is_expected.to belong_to :corp}
+    it {is_expected.to belong_to :screen}
+    it {is_expected.to belong_to :videocard}
+    it {is_expected.to belong_to :seller}
+    it {is_expected.to have_one_attached :image}
+    it {is_expected.to have_many :favorites}
   end
 
   it "is not valid without a full_name" do

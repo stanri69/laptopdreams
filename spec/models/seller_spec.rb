@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Seller, type: :model do
   describe 'relationships' do
-    it {is_expected.to have_many :laptops }
+    it {is_expected.to have_many :laptops}
   end
 
   it "is not valid without a email" do

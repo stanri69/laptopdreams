@@ -34,5 +34,15 @@ RSpec.describe LaptopsController, type: :routing do
     it "routes to #destroy" do
       expect(delete: "/laptops/1").to route_to("laptops#destroy", id: "1")
     end
+
+    describe "routing favorite laptop" do
+      it "routes to #create" do
+        expect(post: "/laptops/:laptop_id/favorites").to route_to("favorites#create")
+      end
+
+      it "routes to #destroy" do
+        expect(delete: "/laptops/:laptop_id/favorites/:id").to route_to("favorites#destroy", id: "1")
+      end
+    end
   end
 end
