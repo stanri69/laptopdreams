@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :sellers
   devise_for :users
+  resources :users
   resources :videocards
   resources :screens
   resources :rams
