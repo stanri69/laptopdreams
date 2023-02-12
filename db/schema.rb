@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_11_013629) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_12_142208) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -111,6 +111,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_013629) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "laptop_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["laptop_id"], name: "index_favorites_on_laptop_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "laptops", force: :cascade do |t|
     t.string "full_name"
     t.integer "price"
@@ -203,6 +212,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_013629) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favorites", "laptops"
+  add_foreign_key "favorites", "users"
   add_foreign_key "laptops", "additionallies"
   add_foreign_key "laptops", "batteries"
   add_foreign_key "laptops", "connections"

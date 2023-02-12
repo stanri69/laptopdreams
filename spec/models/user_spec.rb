@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  describe 'relationships' do
+    it {is_expected.to have_many :favorites}
+  end
 
   it "is not valid without a email" do
     expect(subject).to_not be_valid(email: nil)

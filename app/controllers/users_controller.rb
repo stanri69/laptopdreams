@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @laptop = Laptop.find(params[:id])
     @user = User.find(params[:id])
   end
 

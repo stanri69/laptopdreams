@@ -25,6 +25,18 @@
       %br
       type laptop:
       = @laptop.type_laptop
+      %br
+      - if current_user
+        - pre_like = @laptop.favorites.find { |favorite| favorite.user_id == current_user.id}
+        - if pre_like
+          = button_to 'Unfavorite', laptop_favorite_path(@laptop, pre_like), method: :delete, class: "g btn btn-white"
+        - else
+          = button_to 'Favorite', laptop_favorites_path(@laptop), method: :post, class: "g btn btn-white"
+      %br
+      -if current_seller
+        %span
+          = @laptop.favorites.count
+          = (@laptop.favorites.count) == 1 ? 'Favorite' : 'Favorites'
   .row
     .col
       %b corps:

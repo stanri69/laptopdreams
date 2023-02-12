@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :sellers
   devise_for :users
+  resources :users
   resources :videocards
   resources :screens
   resources :rams
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
   resources :connections
   resources :batteries
   resources :additionallies
-  resources :laptops
+  resources :laptops do
+    resources :favorites
+  end
   root 'laptops#index'
 end
