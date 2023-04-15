@@ -5,14 +5,14 @@
       - current_user.favorites.each do |favorite|
         .col-sm
           - if favorite.laptop.image.present?
-            = link_to image_tag(favorite.laptop.image, class: 'style_image_index'), favorites.laptop.image
+            = link_to image_tag(favorite.laptop.image, class: 'style_image_index'), favorite.laptop.image
           - else
             = link_to image_tag "default_image_laptop.jpeg", class: 'style_image_index'
           .col-md-10.col-md-offset-1
             = link_to favorite.laptop.full_name, favorite.laptop
             %br
             = favorite.laptop.price
-            %b $
+            %b.money $
     - else
       %h1 You don't have a favorite laptops
 
